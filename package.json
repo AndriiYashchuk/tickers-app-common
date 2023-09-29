@@ -1,0 +1,24 @@
+{
+  "name": "@tickers-app/common",
+  "version": "1.0.7",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "publish": "git add . && git commit -m \"Updates common package\" && npm version patch && npm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/material": "^5.14.11",
+    "@mui/system": "^5.14.11"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "cross-env": "^7.0.3",
+    "prettier": "^3.0.3"
+  }
+}

@@ -14,9 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/material": "^5.14.11",
-    "@mui/system": "^5.14.11"
-  },
-  "devDependencies": {
+    "@mui/system": "^5.14.11",
     "typescript": "^5.2.2",
     "cross-env": "^7.0.3",
     "prettier": "^3.0.3"

@@ -4,4 +4,5 @@ export interface User{
   isAdmin?: boolean;
   name?: string;
   surname?: string;
+  inActive?: boolean;
 }

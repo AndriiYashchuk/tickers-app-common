@@ -7,8 +7,8 @@ export const withRetry = async<T>(
 ): Promise<T> => {
   try{
     return await doCallback();
-  } catch (e){
-    errorHandler(e);
+  } catch (e: unknown){
+    errorHandler(e as Error);
     await wait(timeout);
     return withRetry(doCallback, timeout, errorHandler)
   }

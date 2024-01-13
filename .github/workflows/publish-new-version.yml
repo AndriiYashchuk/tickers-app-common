@@ -1,0 +1,25 @@
+name: Publish new package version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+        # Setup environment
+      - name: Setup environment
+        uses: ./.github/actions/setup_env
+        with:
+          npm-token: ${{ secrets.NPM_TOKEN }}
+          github-workspace: ${{ github.workspace }}
+
+
+      - run: npm run build
+        shell: bash
+      - run: npm run publish
+        shell: bash

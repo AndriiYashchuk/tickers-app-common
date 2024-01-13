@@ -2,15 +2,21 @@
   "name": "@tickers-app/common",
   "version": "1.0.21",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "clean": "rm -rf ./build",
     "build": "npm run clean && tsc --project tsconfig.production.json",
-    "publish": "git add . && git commit -m \"Updates common package\" && npm version patch && npm publish"
+    "publish": "git add . && git commit -m \"Updates common package\" && npm version patch && npm publish",
+    "test:check": "jest --no-cache",
+    "test": "jest --watchAll --no-cache"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -20,11 +26,10 @@
     "@mui/system": "^5.14.11",
     "cross-env": "^7.0.3",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
-  },
-  "devDependencies": {
-    "node-nats-streaming": "^0.3.2",
+    "typescript": "^5.2.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.2.2"
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "ts-jest": "^29.1.1"
   }
 }

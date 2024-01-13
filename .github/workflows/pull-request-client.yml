@@ -1,0 +1,24 @@
+name: Check client service on Pull Requests
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  lint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v2
+
+      # Setup environment
+      - name: Setup environment
+        uses: ./.github/actions/setup_env
+        with:
+          npm-token: ${{ secrets.NPM_TOKEN }}
+          github-workspace: ${{ github.workspace }}
+
+      # Run tests
+      - name: Run tests
+        run: npm run test:check

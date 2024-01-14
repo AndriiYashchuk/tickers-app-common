@@ -10,6 +10,7 @@ export const withRetry = async<T>(
   } catch (e: unknown){
     errorHandler(e as Error);
     await wait(timeout);
+
     return withRetry(doCallback, timeout, errorHandler)
   }
 }

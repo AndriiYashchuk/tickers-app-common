@@ -20,12 +20,13 @@ runs:
         registry-url: https://registry.npmjs.org/:_authToken=${{ inputs.npm-token  }}
 
     # Create .npmrc
-    - uses: bikutadesu/create-npmrc@v1.0.0
-      with:
-        org_name: tickers-app
-        auth_token: ${{ inputs.npm-token  }}
-        always_auth: true
+    - name: Create .npmrc
+      run: |
+        echo 'registry=https://registry.npmjs.org/' >> ${{ inputs.github-workspace }}/.npmrc
+        echo 'always-auth=true' >> ${{ inputs.github-workspace }}/.npmrc 
+        echo 'https://registry.npmjs.org/:_authToken=${{ inputs.npm-token  }}' >> ${{ inputs.github-workspace }}/.npmrc
+      shell: bash
 
     # Install your dependencies
-    - run: npm ci
+    - run: npm ci --verbose
       shell: bash
